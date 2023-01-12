@@ -1,4 +1,5 @@
 const counterElement = document.querySelector("#counter");
+let container = document.querySelector('#container');
 let miliSecCounter = 0;
 let secCounter = 0;
 let minCounter = 0;
@@ -8,14 +9,13 @@ let minCounterDisplay;
 let result;
 let timerId;
 
-let arrResult1;
-let arrResult2='00:00:00';
+let startLapValue 
+let currentLapValue='00:00:00';
 let lapResult;
-let razn = 0;
 
 //Запуск секундомера по кнопке "Старт"
 const btnStart = document.querySelector('#start');
-btnStart.addEventListener('click', function () {
+btnStart.addEventListener('click', function start() {
   timerId = setInterval (function(){
   miliSecCounter += 1;
   if (miliSecCounter == 100) {
@@ -38,35 +38,38 @@ btnStart.addEventListener('click', function () {
 
 //Реализация кнопки "Пауза"
 const btnPause = document.querySelector('#pause');
-btnPause.addEventListener('click', function (){
+btnPause.addEventListener('click', function pause(){
   clearInterval(timerId);
 });
 
 //Сброс тайминга по кнопке "Сброс"
 const btnReset = document.querySelector('#reset');
-btnReset.addEventListener('click', function (){
+btnReset.addEventListener('click', function reset(){
   clearInterval(timerId);
   miliSecCounter = 0;
   secCounter = 0;
   minCounter = 0;
   counterElement.innerText = '00:00:00';
-  arrResult2='00:00:00';
-  console.log('result='+result);
+  currentLapValue='00:00:00';
+  const htmlResult = `<p>Результат: ${result}</p>`;
+container.insertAdjacentHTML('beforeend', htmlResult);
 });
 
 //Реализация кнопки "Круг"
 const btnLap = document.querySelector('#lap');
-btnLap.addEventListener('click', function () {
-if (arrResult2 == '00:00:00') {
-  arrResult1 = [00, 00, 00];
+btnLap.addEventListener('click', function lap() {
+if (currentLapValue == '00:00:00') {
+  startLapValue = [00, 00, 00];
 } ;
-arrResult2 = result.split(":");
-let mil1 = Number(arrResult1[2]) + Number(arrResult1[1])*100 + Number(arrResult1[0]*6000);
-let mil2 = Number(arrResult2[2]) + Number(arrResult2[1])*100 + Number(arrResult2[0]*6000);
-razn = Math.abs(mil1-mil2);
+currentLapValue = result.split(":");
+let mil1 = Number(startLapValue[2]) + Number(startLapValue[1])*100 + Number(startLapValue[0]*6000);
+let mil2 = Number(currentLapValue[2]) + Number(currentLapValue[1])*100 + Number(currentLapValue[0]*6000);
+let razn = Math.abs(mil1-mil2);
 lapResult = [Math.floor(razn/6000),Math.floor((razn-Math.floor(razn/6000)*6000)/100),
 razn-((Math.floor(razn/6000)*6000)+(Math.floor((razn-Math.floor(razn/6000)*6000)/100))*100)];
-arrResult1=arrResult2;
+startLapValue=currentLapValue;
 console.log('Lap:' + lapResult);
+//Вставка результата 
+const htmlResult = `<p>Круг: ${lapResult}</p>`;
+container.insertAdjacentHTML('beforeend', htmlResult);
 }); 
-
