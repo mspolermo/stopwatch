@@ -82,6 +82,7 @@ if ( miliSecCounter == 0 && secCounter == 0 && minCounter == 0){
 } else {
   htmlResult = `<p>Круг: ${lapResultUpg.join(":")} Общий результат: ${currentLapValue.join(":")} </p>`;
 container.insertAdjacentHTML('beforeend', htmlResult);
+//Счетчик нажатий
 };
 
 }); 
