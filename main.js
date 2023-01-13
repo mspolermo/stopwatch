@@ -80,7 +80,7 @@ if ( miliSecCounter == 0 && secCounter == 0 && minCounter == 0){
   htmlResult = `<p>Секундомер не запущен</p>`;
   container.insertAdjacentHTML('beforeend', htmlResult);
 } else {
-  htmlResult = `<p>Круг: ${lapResultUpg.join(":")}</p>`;
+  htmlResult = `<p>Круг: ${lapResultUpg.join(":")} Общий результат: ${currentLapValue.join(":")} </p>`;
 container.insertAdjacentHTML('beforeend', htmlResult);
 };
 
