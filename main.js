@@ -6,12 +6,13 @@ let minCounter = 0;
 let miliSecCounterDisplay;
 let secCounterDisplay;
 let minCounterDisplay;
-let result;
+let result='00:00:00';
 let timerId;
 
 let startLapValue 
 let currentLapValue='00:00:00';
 let lapResult;
+
 
 //Запуск секундомера по кнопке "Старт"
 const btnStart = document.querySelector('#start');
@@ -51,6 +52,7 @@ btnReset.addEventListener('click', function reset(){
   minCounter = 0;
   counterElement.innerText = '00:00:00';
   currentLapValue='00:00:00';
+  startLapValue = [00, 00, 00];
   const htmlResult = `<p>Результат: ${result}</p>`;
 container.insertAdjacentHTML('beforeend', htmlResult);
 });
@@ -58,7 +60,7 @@ container.insertAdjacentHTML('beforeend', htmlResult);
 //Реализация кнопки "Круг"
 const btnLap = document.querySelector('#lap');
 btnLap.addEventListener('click', function lap() {
-if (currentLapValue == '00:00:00') {
+  if (currentLapValue == '00:00:00') {
   startLapValue = [00, 00, 00];
 } ;
 currentLapValue = result.split(":");
@@ -68,8 +70,18 @@ let razn = Math.abs(mil1-mil2);
 lapResult = [Math.floor(razn/6000),Math.floor((razn-Math.floor(razn/6000)*6000)/100),
 razn-((Math.floor(razn/6000)*6000)+(Math.floor((razn-Math.floor(razn/6000)*6000)/100))*100)];
 startLapValue=currentLapValue;
-console.log('Lap:' + lapResult);
+let lapResultUpg = [];
+(lapResult[0]<10) ? lapResultUpg[0] = '0'+lapResult[0] : lapResultUpg[0]=lapResult[0];
+(lapResult[1]<10) ? lapResultUpg[1] = '0'+lapResult[1] : lapResultUpg[1]=lapResult[1];
+(lapResult[2]<10) ? lapResultUpg[2] = '0'+lapResult[2] : lapResultUpg[2]=lapResult[2];
 //Вставка результата 
-const htmlResult = `<p>Круг: ${lapResult}</p>`;
+let htmlResult;
+if ( miliSecCounter == 0 && secCounter == 0 && minCounter == 0){
+  htmlResult = `<p>Секундомер не запущен</p>`;
+  container.insertAdjacentHTML('beforeend', htmlResult);
+} else {
+  htmlResult = `<p>Круг: ${lapResultUpg.join(":")}</p>`;
 container.insertAdjacentHTML('beforeend', htmlResult);
+};
+
 }); 
