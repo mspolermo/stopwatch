@@ -96,3 +96,9 @@ else {
   container.insertAdjacentHTML('beforeend', htmlResult);
 };
 }); 
+
+//Реализация кнопки "Очистить сообщения"
+const btnClear = document. querySelector('#clear');
+btnClear.addEventListener('click', function clear(){
+container. innerHTML='';
+});
