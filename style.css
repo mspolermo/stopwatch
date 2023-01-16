@@ -1,14 +1,17 @@
 *{background-color: #292727;
-color: #bfbbbb;}
+color: #bfbbbb;
+padding: 0px;
+margin: 0px}
 
 #stopwatch {
-    width: 440px;
-    height: 470px;
+    width: 438px;
+    height: 480px;
     border: 2px solid gray;
     border-radius: 2px;
 }
 #counter {
-    margin: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
     width: 410px;
     height: 60px;
     border: 2px solid gray;
@@ -83,13 +86,31 @@ color: #bfbbbb;}
             background-color: #858181;
         }
 #container {
-    width: 392px;
+    width: 400px;
     height: 300px;
     border: 2px solid gray;
     border-radius: 2px;
-    margin: 10px;
-    padding: 10px;
-    margin-top: 60px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
     cursor: default;
-    text-overflow: clip | ellipsis;
+    display:inline-block;
+    max-width:400px;
+    max-height: 300px;
+    overflow:hidden;
 }
+#clear {
+    width: 410px;
+    height: 25px;
+    border: 2px solid gray;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 4px;
+    line-height: 25px;
+}
+        #clear:hover {
+            cursor: pointer;
+            border-radius: 6px;
+            color: #3b3838;
+            background-color: #858181;
+        }
