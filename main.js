@@ -1,4 +1,6 @@
 const counterElement = document.querySelector("#counter");
+const stopwatch = document.querySelector('#stopwatch');
+const btnCentr = document.querySelector('#btn');
 let container = document.querySelector('#container');
 let miliSecCounter = 0;
 let secCounter = 0;
@@ -15,6 +17,7 @@ let lapResultUpg = [];
 let lapClicks = 0;
 let stopClicks = 0;
 let htmlResult;
+let btnCentrCounter = 0;
 
 
 
@@ -114,3 +117,15 @@ const btnClear = document. querySelector('#clear');
 btnClear.addEventListener('click', function clear(){
   container.innerHTML='';
 });
+
+
+//Реализация кнопки "Центр"
+btnCentr.addEventListener('click', function(){
+  btnCentrCounter ++;
+  if (btnCentrCounter==1) {
+    stopwatch.classList.add('center');
+  } else {
+    btnCentrCounter=0;
+    stopwatch.classList.remove('center');
+  }
+})
