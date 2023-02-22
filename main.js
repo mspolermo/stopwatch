@@ -123,9 +123,9 @@ btnClear.addEventListener('click', function clear(){
 btnCentr.addEventListener('click', function(){
   btnCentrCounter ++;
   if (btnCentrCounter==1) {
-    stopwatch.classList.add('center');
+    stopwatch.classList.add('stopwatch_centerPosition');
   } else {
     btnCentrCounter=0;
-    stopwatch.classList.remove('center');
+    stopwatch.classList.remove('stopwatch_centerPosition');
   }
 })

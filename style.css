@@ -1,114 +1,65 @@
 *{
+padding: 0px;
+margin: 0px;
+
 background-color: #292727;
 color: #bfbbbb;
-padding: 0px;
-margin: 0px}
-
-#stopwatch {
+}
+.stopwatch {
+    position: absolute;
     width: 438px;
     height: 510px;
+
     border: 2px solid gray;
     border-radius: 2px;
-    position: absolute;
 }
-.center{    
+.stopwatch__btn{
+    float: left;
+    width: 85px;
+    height: 25px; 
+    margin: 10px;
+
+    border: 2px solid gray;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+}
+.stopwatch__btnCenter{
+    position: absolute;
+    left: 410px;
+    top:-12px;
+    width: 16px;
+    height: 16px;
+
+    line-height: 16px;
+}
+.stopwatch_centerPosition{    
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#btn{
-    width: 16px;
-    height: 16px;
-    border: 2px solid gray;
-    border-radius: 2px;
-    line-height: 16px;
-    text-align: center;
-    position: absolute;
-    left: 420px;
-    top:-2px
-}
-        #btn:hover {
-            cursor: pointer;
-            border-radius: 4px;
-            color: #3b3838;
-            background-color: #858181;
-}
-#counter {
-    margin-left: 10px;
-    margin-top: 30px;
+.stopwatch__counterDisplay {
     width: 412px;
     height: 60px;
+
+    margin-left: 10px;
+    margin-top: 30px;
+
     border: 2px solid gray;
     border-radius: 2px;
     text-align: center;
     line-height: 60px;
+
     cursor: default;
     font-size: 42px;
 }
-#start {
-    width: 85px;
-    height: 25px;
-    border: 2px solid gray;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 25px;
-    margin: 10px;
-    float: left;
+
+.stopwatch__btn:hover {
+    cursor: pointer;
+    border-radius: 6px;
+    color: #3b3838;
+    background-color: #858181;
 }
-        #start:hover {
-            cursor: pointer;
-            border-radius: 6px;
-            color: #3b3838;
-            background-color: #858181;
-        }
-#pause {
-    width: 85px;
-    height: 25px;
-    border: 2px solid gray;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 25px;
-    margin: 10px;
-    float: left;
-}
-        #pause:hover {
-            cursor: pointer;
-            border-radius: 6px;
-            color: #3b3838;
-            background-color: #858181;
-        }
-#lap {
-    width: 85px;
-    height: 25px;
-    border: 2px solid gray;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 25px;
-    margin: 10px;
-    float: left;
-}
-        #lap:hover {
-            cursor: pointer;
-            border-radius: 6px;
-            color: #3b3838;
-            background-color: #858181;
-        }
-#stop {
-    width: 85px;
-    height: 25px;
-    border: 2px solid gray;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 25px;
-    margin: 10px;
-    float: left;
-}
-        #stop:hover {
-            cursor: pointer;
-            border-radius: 6px;
-            color: #3b3838;
-            background-color: #858181;
-        }
 #container {
     width: 402px;
     height: 300px;
