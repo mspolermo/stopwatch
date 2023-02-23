@@ -44,9 +44,9 @@ const btnPause = document.querySelector('#pause');
 btnPause.addEventListener('click', function () {
   clearInterval(timerId);
   if ((result=='00:00:00') || (stopClicks>=1)) {
-    container.insertAdjacentHTML('afterbegin', `<p>Секундомер не запущен</p>`)
+    container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер не запущен</p>`)
   }else{
-  container.insertAdjacentHTML('afterbegin', `<p>Секундомер на паузе. Текущий результат: ${result} </p>`);}
+  container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер на паузе. Текущий результат: ${result} </p>`);}
 });
 
 
@@ -65,10 +65,10 @@ btnStop.addEventListener('click', function () {
   lapResultUpg = [00, 00, 00];
 
   counterElement.innerText = '00:00:00';
-  htmlResult = `<p>Общий результат: ${result}</p>`;
+  htmlResult = `<p class="stopwatch__textContainer__string">Общий результат: ${result}</p>`;
 
   if ((stopClicks !== 1) || (result=='00:00:00')) {
-    container.insertAdjacentHTML('afterbegin', `<p>Секундомер не запущен</p>`)
+    container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер не запущен</p>`)
   }else{
     container.insertAdjacentHTML('afterbegin', htmlResult)};
 });
@@ -95,7 +95,7 @@ btnLap.addEventListener('click', function () {
 
         //Вставка результата 
   if (miliSecCounter == 0 && secCounter == 0 && minCounter == 0){
-    htmlResult = `<p>Секундомер не запущен</p>`;
+    htmlResult = `<p class="stopwatch__textContainer__string">Секундомер не запущен</p>`;
     container.insertAdjacentHTML('afterbegin', htmlResult);
     lapClicks = 0;
     currentLapValue='00:00:00';
@@ -103,9 +103,9 @@ btnLap.addEventListener('click', function () {
     lapResultUpg = [00, 00, 00];
   } else {
     htmlResult = 
-      `<span class="numLap">#${lapClicks}</span> 
-      <span>Круг: ${lapResultUpg.join(":")} </span> 
-      <span class="spanDesign">Общий результат: ${currentLapValue.join(":")} 
+      `<span class="stopwatch__textContainer__LapElements stopwatch__textContainer__LapElements_numLap">#${lapClicks}</span> 
+      <span class="stopwatch__textContainer__LapElements">Круг: ${lapResultUpg.join(":")} </span> 
+      <span class="stopwatch__textContainer__LapElements">Общий результат: ${currentLapValue.join(":")} 
       </span>
       </br>`;
     container.insertAdjacentHTML('afterbegin', htmlResult);

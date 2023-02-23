@@ -24,6 +24,12 @@ color: #bfbbbb;
     text-align: center;
     line-height: 25px;
 }
+.stopwatch__btn:hover {
+    cursor: pointer;
+    border-radius: 6px;
+    color: #3b3838;
+    background-color: #858181;
+}
 .stopwatch__btnCenter{
     position: absolute;
     left: 410px;
@@ -53,14 +59,7 @@ color: #bfbbbb;
     cursor: default;
     font-size: 42px;
 }
-
-.stopwatch__btn:hover {
-    cursor: pointer;
-    border-radius: 6px;
-    color: #3b3838;
-    background-color: #858181;
-}
-#container {
+.stopwatch__textContainer {
     width: 402px;
     height: 300px;
     border: 2px solid gray;
@@ -74,30 +73,19 @@ color: #bfbbbb;
     max-height: 300px;
     overflow-y: scroll;
 }
-#clear {
-    width: 412px;
-    height: 25px;
-    border: 2px solid gray;
-    margin: 10px;
+.stopwatch__textContainer__string {
+    margin: 8px;
     text-align: center;
-    border-radius: 4px;
-    line-height: 25px;
 }
-        #clear:hover {
-            cursor: pointer;
-            border-radius: 6px;
-            color: #3b3838;
-            background-color: #858181;
-        }
-span{
+.stopwatch__textContainer__LapElements{
 margin-left: 20px;
 }
-.numLap {
+.stopwatch__textContainer__LapElements_numLap {
     margin-left: 10px;
     display: inline-block;
     width: 20px;
 }
-p {
-    margin: 8px;
-    text-align: center;
+.stopwatch__btn_clear {
+    width: 412px;
+    height: 25px;
 }
