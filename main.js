@@ -19,8 +19,6 @@ let stopClicks = 0;
 let htmlResult;
 let btnCentrCounter = 0;
 
-
-
 //Запуск секундомера по кнопке "Старт"
 const btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', function () {
@@ -48,7 +46,6 @@ btnPause.addEventListener('click', function () {
   }else{
   container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер на паузе. Текущий результат: ${result} </p>`);}
 });
-
 
 //Остановка секундомера по кнопке "Стоп"
 const btnStop = document.querySelector('#stop');
@@ -117,7 +114,6 @@ const btnClear = document. querySelector('#clear');
 btnClear.addEventListener('click', function clear(){
   container.innerHTML='';
 });
-
 
 //Реализация кнопки "Центр"
 btnCentr.addEventListener('click', function(){

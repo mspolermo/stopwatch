@@ -30,6 +30,15 @@ color: #bfbbbb;
     color: #3b3838;
     background-color: #858181;
 }
+.stopwatch__btn:focus {
+    outline: none;
+    border-radius: 6px;
+    color: #3b3838;
+    background-color: #858181;
+}
+.stopwatch__btn:active {
+    transform: translateY(1px);
+}
 .stopwatch__btnCenter{
     position: absolute;
     left: 410px;
