@@ -19,6 +19,19 @@ let stopClicks = 0;
 let htmlResult;
 let btnCentrCounter = 0;
 
+//Реализация функции активации кнопок по нажатию "Enter"
+function keyWaiter (event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    document.getElementById(this.id).click();
+    document.getElementById(this.id).style.transform= 'translateY(1px)';
+    let currentButton = this.id;
+    setTimeout(function() {
+      document.getElementById(currentButton).style.transform= 'translateY(0px)';
+    }, 100)
+  };
+};
+
 //Запуск секундомера по кнопке "Старт"
 const btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', function () {
@@ -36,6 +49,7 @@ btnStart.addEventListener('click', function () {
 }, 10);
 stopClicks = 0;
 });
+btnStart.addEventListener('keyup', keyWaiter);
 
 //Реализация кнопки "Пауза"
 const btnPause = document.querySelector('#pause');
@@ -46,29 +60,7 @@ btnPause.addEventListener('click', function () {
   }else{
   container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер на паузе. Текущий результат: ${result} </p>`);}
 });
-
-//Остановка секундомера по кнопке "Стоп"
-const btnStop = document.querySelector('#stop');
-btnStop.addEventListener('click', function () {
-  stopClicks += 1; //Счетчик нажатий кнопки "Стоп"
-
-  clearInterval(timerId);
-  miliSecCounter = 0;
-  secCounter = 0;
-  minCounter = 0;
-  lapClicks = 0;
-  currentLapValue='00:00:00';
-  startLapValue = [00, 00, 00];
-  lapResultUpg = [00, 00, 00];
-
-  counterElement.innerText = '00:00:00';
-  htmlResult = `<p class="stopwatch__textContainer__string">Общий результат: ${result}</p>`;
-
-  if ((stopClicks !== 1) || (result=='00:00:00')) {
-    container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер не запущен</p>`)
-  }else{
-    container.insertAdjacentHTML('afterbegin', htmlResult)};
-});
+btnPause.addEventListener('keyup', keyWaiter);
 
 //Реализация кнопки "Круг"
 const btnLap = document.querySelector('#lap');
@@ -108,12 +100,38 @@ btnLap.addEventListener('click', function () {
     container.insertAdjacentHTML('afterbegin', htmlResult);
   };
 }); 
+btnLap.addEventListener('keyup', keyWaiter);
+
+//Остановка секундомера по кнопке "Стоп"
+const btnStop = document.querySelector('#stop');
+btnStop.addEventListener('click', function () {
+  stopClicks += 1; //Счетчик нажатий кнопки "Стоп"
+
+  clearInterval(timerId);
+  miliSecCounter = 0;
+  secCounter = 0;
+  minCounter = 0;
+  lapClicks = 0;
+  currentLapValue='00:00:00';
+  startLapValue = [00, 00, 00];
+  lapResultUpg = [00, 00, 00];
+
+  counterElement.innerText = '00:00:00';
+  htmlResult = `<p class="stopwatch__textContainer__string">Общий результат: ${result}</p>`;
+
+  if ((stopClicks !== 1) || (result=='00:00:00')) {
+    container.insertAdjacentHTML('afterbegin', `<p class="stopwatch__textContainer__string">Секундомер не запущен</p>`)
+  }else{
+    container.insertAdjacentHTML('afterbegin', htmlResult)};
+});
+btnStop.addEventListener('keyup', keyWaiter);
 
 //Реализация кнопки "Очистить сообщения"
 const btnClear = document. querySelector('#clear');
 btnClear.addEventListener('click', function clear(){
   container.innerHTML='';
 });
+btnClear.addEventListener('keyup', keyWaiter);
 
 //Реализация кнопки "Центр"
 btnCentr.addEventListener('click', function(){
@@ -124,4 +142,5 @@ btnCentr.addEventListener('click', function(){
     btnCentrCounter=0;
     stopwatch.classList.remove('stopwatch_centerPosition');
   }
-})
+});
+btnCentr.addEventListener('keyup', keyWaiter);
