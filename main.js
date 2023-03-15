@@ -37,12 +37,17 @@ const btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', function () {
   timerId = setInterval (function () {
   miliSecCounter += 1;
-  if (miliSecCounter == 100) {secCounter += 1; miliSecCounter = 0; };
-  if (secCounter == 60) {minCounter += 1; secCounter = 0; };
+  if (miliSecCounter == 100) {
+    secCounter += 1; miliSecCounter = 0; 
+  };
 
-  (miliSecCounter<10) ? miliSecCounterDisplay = '0'+miliSecCounter : miliSecCounterDisplay=miliSecCounter;
-  (secCounter<10) ? secCounterDisplay = '0'+secCounter : secCounterDisplay=secCounter;
-  (minCounter<10) ? minCounterDisplay = '0'+minCounter : minCounterDisplay=minCounter;
+  if (secCounter == 60) {
+    minCounter += 1; secCounter = 0; 
+  };
+
+  (miliSecCounter < 10) ? miliSecCounterDisplay = '0' + miliSecCounter : miliSecCounterDisplay = miliSecCounter;
+  (secCounter < 10) ? secCounterDisplay = '0' + secCounter : secCounterDisplay = secCounter;
+  (minCounter < 10) ? minCounterDisplay = '0' + minCounter : minCounterDisplay = minCounter;
   result = minCounterDisplay + ':' + secCounterDisplay + ":" + miliSecCounterDisplay;
   
   counterElement.innerText = result;
@@ -71,16 +76,16 @@ btnLap.addEventListener('click', function () {
   if (currentLapValue == '00:00:00') {startLapValue = [00, 00, 00];};
 
   currentLapValue = result.split(":");
-  let mil1 = Number(startLapValue[2]) + Number(startLapValue[1])*100 + Number(startLapValue[0]*6000);
-  let mil2 = Number(currentLapValue[2]) + Number(currentLapValue[1])*100 + Number(currentLapValue[0]*6000);
-  let razn = Math.abs(mil1-mil2);
-  lapResult = [Math.floor(razn/6000),Math.floor((razn-Math.floor(razn/6000)*6000)/100),
-  razn-((Math.floor(razn/6000)*6000)+(Math.floor((razn-Math.floor(razn/6000)*6000)/100))*100)];
-  startLapValue=currentLapValue;
+  let mil1 = Number(startLapValue[2]) + Number(startLapValue[1]) * 100 + Number(startLapValue[0] * 6000);
+  let mil2 = Number(currentLapValue[2]) + Number(currentLapValue[1]) * 100 + Number(currentLapValue[0] * 6000);
+  let razn = Math.abs(mil1 - mil2);
+  lapResult = [Math.floor(razn / 6000),Math.floor((razn-Math.floor(razn / 6000) * 6000) / 100),
+  razn - ((Math.floor(razn / 6000) * 6000) + (Math.floor((razn - Math.floor(razn / 6000) * 6000) / 100)) * 100)];
+  startLapValue = currentLapValue;
 
-  (lapResult[0]<10) ? lapResultUpg[0] = '0'+lapResult[0] : lapResultUpg[0]=lapResult[0];
-  (lapResult[1]<10) ? lapResultUpg[1] = '0'+lapResult[1] : lapResultUpg[1]=lapResult[1];
-  (lapResult[2]<10) ? lapResultUpg[2] = '0'+lapResult[2] : lapResultUpg[2]=lapResult[2];
+  (lapResult[0]<10) ? lapResultUpg[0] = '0'+ lapResult[0] : lapResultUpg[0] = lapResult[0];
+  (lapResult[1]<10) ? lapResultUpg[1] = '0'+ lapResult[1] : lapResultUpg[1] = lapResult[1];
+  (lapResult[2]<10) ? lapResultUpg[2] = '0'+ lapResult[2] : lapResultUpg[2] = lapResult[2];
 
         //Вставка результата 
   if (miliSecCounter == 0 && secCounter == 0 && minCounter == 0){
@@ -136,10 +141,10 @@ btnClear.addEventListener('keyup', keyWaiter);
 //Реализация кнопки "Центр"
 btnCentr.addEventListener('click', function(){
   btnCentrCounter ++;
-  if (btnCentrCounter==1) {
+  if (btnCentrCounter == 1) {
     stopwatch.classList.add('stopwatch_centerPosition');
   } else {
-    btnCentrCounter=0;
+    btnCentrCounter = 0;
     stopwatch.classList.remove('stopwatch_centerPosition');
   }
 });
